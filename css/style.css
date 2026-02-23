@@ -1,0 +1,210 @@
+/* ===================================================================
+   Pet Lovers Community – Custom Styles
+   Complements Bootstrap 5
+   =================================================================== */
+
+/* ── Root / Variables ────────────────────────────────────────────── */
+:root {
+    --pet-primary: #0d6efd;
+    --pet-accent:  #fd7e14;
+    --pet-success: #198754;
+    --pet-light:   #f8f9fa;
+    --pet-radius:  0.75rem;
+    --transition:  0.2s ease-in-out;
+}
+
+/* ── Global ──────────────────────────────────────────────────────── */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Progress Steps ──────────────────────────────────────────────── */
+.progress-steps {
+    padding: 0 4px;
+}
+
+.step-dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    position: relative;
+}
+
+/* Connecting line between dots */
+.step-dot:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: calc(50% + 8px);
+    right: calc(-50% + 8px);
+    height: 2px;
+    background: #dee2e6;
+    z-index: 0;
+}
+
+.step-dot.done::after,
+.step-dot.active::after {
+    background: var(--pet-primary);
+}
+
+.step-dot .dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #dee2e6;
+    border: 2px solid #dee2e6;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.step-dot.active .dot {
+    background: var(--pet-primary);
+    border-color: var(--pet-primary);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.step-dot.done .dot {
+    background: var(--pet-primary);
+    border-color: var(--pet-primary);
+}
+
+.step-dot .step-label {
+    font-size: 0.65rem;
+    color: #6c757d;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.step-dot.active .step-label,
+.step-dot.done .step-label {
+    color: var(--pet-primary);
+    font-weight: 600;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────── */
+.card {
+    border-radius: var(--pet-radius);
+    transition: box-shadow var(--transition);
+}
+
+/* ── Member Cards (Dashboard) ────────────────────────────────────── */
+.member-card {
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.member-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* ── Avatar / Profile Photos ─────────────────────────────────────── */
+.member-avatar {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 3px solid #e9ecef;
+}
+
+.profile-preview-lg {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border: 3px solid #e9ecef;
+    transition: border-color var(--transition);
+}
+
+.profile-preview-lg:hover {
+    border-color: var(--pet-primary);
+}
+
+.profile-preview-md {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border: 3px solid #e9ecef;
+}
+
+.profile-preview-sm {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid #e9ecef;
+}
+
+/* ── Pet Thumbnails ──────────────────────────────────────────────── */
+.pet-thumb-sm {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.pet-badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 999px;
+    transition: background var(--transition);
+}
+
+.pet-badge:hover {
+    background: #e2e8ff !important;
+}
+
+/* ── Photo preview wrapper ───────────────────────────────────────── */
+.photo-preview-wrapper {
+    width: 140px;
+    height: 140px;
+    position: relative;
+}
+
+/* ── Pet entry form ──────────────────────────────────────────────── */
+.pet-entry {
+    border-radius: var(--pet-radius) !important;
+    transition: box-shadow var(--transition);
+}
+
+.pet-entry:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Confirmation summary table ──────────────────────────────────── */
+.summary-table th {
+    font-weight: 400;
+    color: #6c757d;
+    width: 35%;
+}
+
+/* ── Navbar ──────────────────────────────────────────────────────── */
+.navbar {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+.btn {
+    border-radius: 0.5rem;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* ── Alerts ──────────────────────────────────────────────────────── */
+.alert {
+    border-radius: var(--pet-radius);
+}
+
+/* ── Responsive tweaks ───────────────────────────────────────────── */
+@media (max-width: 575.98px) {
+    .step-label {
+        display: none;
+    }
+    .member-avatar {
+        width: 64px;
+        height: 64px;
+    }
+}
