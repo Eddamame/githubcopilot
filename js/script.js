@@ -157,10 +157,11 @@ function showToast(message, type) {
 
     document.body.appendChild(div);
 
-    // Auto-dismiss after 4 s
+    // Auto-dismiss after 4 s (300 ms matches Bootstrap fade transition)
+    var FADE_DURATION_MS = 300;
     setTimeout(function () {
         div.classList.remove('show');
-        setTimeout(function () { div.remove(); }, 300);
+        setTimeout(function () { div.remove(); }, FADE_DURATION_MS);
     }, 4000);
 }
 

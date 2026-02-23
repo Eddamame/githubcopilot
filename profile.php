@@ -90,7 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $petAges    = $_POST['pet_age']    ?? [];
         $updatedPets = [];
 
-        for ($i = 0; $i < count($petNames); $i++) {
+        $petCount = count($petNames);
+        for ($i = 0; $i < $petCount; $i++) {
             $petName = trim($petNames[$i] ?? '');
             if (empty($petName)) {
                 continue;

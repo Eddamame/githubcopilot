@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $savedPets     = $_SESSION['onboarding']['pets'] ?? [];
         $processedPets = [];
 
-        for ($i = 0; $i < count($petNames); $i++) {
+        $petCount = count($petNames);
+        for ($i = 0; $i < $petCount; $i++) {
             $petName = trim($petNames[$i] ?? '');
             if (empty($petName)) {
                 continue; // skip blank entries
